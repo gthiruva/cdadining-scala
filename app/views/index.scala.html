@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Play 2 with CloudFront</title>
+<link type='text/css' rel='stylesheet' href='@RemoteAssets.getUrl("stylesheets/main.css")'/>
+    <script type='text/javascript' src='@RemoteAssets.getUrl("jquery.min.js")'></script>
+    <script type='text/javascript' src='@RemoteAssets.getUrl("javascripts/index.min.js")'></script>
+</head>
+<body>
+<img src='@RemoteAssets.getUrl("images/favicon.png")' style="display: none;"/>
+</body>
+</html>
+
+@*
+@(message: String)
+
+@main("Welcome to Play 2.0") {
+    
+    @play20.welcome(message)
+    
+}
+*@
