@@ -3,8 +3,27 @@
 # ~~~~
 
 # Home page
-GET     /                           controllers.Application.index()
+GET  /               controllers.Application.index
+GET  /about          controllers.Application.about
+GET  /careers        controllers.Application.careers
+GET  /events         controllers.Application.events
+GET  /investors      controllers.Application.investors
+GET  /menu           controllers.Application.menu
+GET  /mixology       controllers.Application.mixology
+GET  /order          controllers.Application.order
+GET  /photos         controllers.Application.photos
+GET  /press          controllers.Application.press
+GET  /reserve        controllers.Application.reserve
 
 # Map static resources from the /public folder to the /assets URL path
 #GET     /assets/*file               controllers.Assets.at(path="/public", file)
 GET     /assets/*file               controllers.RemoteAssets.getAsset(path="/public", file)
+
+GET  ajax.googleapis.com/ajax/libs/*file                 controllers.Assets.at(path="/gcdn/js", file)
+
+GET  /assets/data/$file<.*json>                   controllers.Assets.at(path="/public/data", file)
+GET  /assets/juicebox/*file                       controllers.Assets.at(path="/public/juicebox", file)
+GET  /assets/images/*file                         controllers.Assets.at(path="/public/images", file)
+GET  /assets/stylesheets/*file                    controllers.Assets.at(path="/public/stylesheets", file)
+GET  /assets/javascripts/*file                    controllers.Assets.at(path="/public/javascripts", file)
+GET  /$file<.*(xml|html|txt)>                     controllers.Assets.at(path="/public/", file)
