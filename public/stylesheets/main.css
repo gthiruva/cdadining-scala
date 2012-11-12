@@ -501,9 +501,10 @@ div.menu_section_collapse_button {
   width: 18px;
 }
 
-svg.toggle {
+svg {
   height: 100%;
   vertical-align: middle;
+  overflow: visible;
 }
 
 div.menu_section_body {
