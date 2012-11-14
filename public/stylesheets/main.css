@@ -124,6 +124,7 @@ div.nav {
 }
 
 .site_sections {
+  display:none;
   position: relative;
   background: #000000;
   top: 20rem;
@@ -136,7 +137,7 @@ div.nav {
   color: #ffffff;
   text-align:center;
 }
-.site_sections > p { margin-top: 10rem; }
+.site_sections > p {margin-top: 10rem;}
 .site_sections > p > a:link    {color: white;   text-decoration:none;}  /* unvisited link  */
 .site_sections > p > a:visited {color: white;   text-decoration:none;}  /* visited link    */
 .site_sections > p > a:hover   {color: #D41580; text-decoration:none;}  /* mouse over link */

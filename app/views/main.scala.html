@@ -54,6 +54,17 @@
     </script>
     <script type="text/javascript">
       $(document).ready(function() {
+
+        if(! /^.*\/$/i.test(window.location.pathname))
+          $('div.site_sections').css('display','block');
+
+        $("div.arrow_box").click(function() {
+          if($(this).siblings('div.site_sections').css('display') === 'none')
+            $(this).siblings('div.site_sections').css('display','block');
+          else
+            $(this).siblings('div.site_sections').css('display','none');
+        });
+
       $("a#first" ).addClass("actlink");   $(".first" ).show();
       $("a#second").addClass("inactlink"); $(".second").hide();
       $("a#third" ).addClass("inactlink"); $(".third" ).hide();
@@ -146,7 +157,7 @@ node: "prompt"
     </div>
     <div class="nav">
         <div class="arrow_box">
-            <p><a id="index"   href="@routes.Application.index()">   THE RESTAURANT     </a></p>
+            <p>   THE RESTAURANT     </p>
         </div>
         <div class="site_sections">
             <p><a id="reserve"  href="@routes.Application.reserve()">  MAKE A RESERVATION </a></p>
