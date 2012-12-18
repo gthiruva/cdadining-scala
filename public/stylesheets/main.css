@@ -133,7 +133,7 @@ div.nav {
 }
 
 .site_sections {
-  display:none;
+  display:block;
   position: relative;
   background: #000000;
   top: 20rem;
