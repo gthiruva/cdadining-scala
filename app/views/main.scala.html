@@ -1,8 +1,9 @@
 @(title: String, bgImgURL: String)(content: Html)
+@import org.hibernate.validator.constraints.SafeHtml
 <!DOCTYPE HTML>
 <html lang="en-US" xmlns="http://www.w3.org/1999/html">
   <head>
-  <title>@title</title>
+    <title>@title</title>
 
   <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="chrome=IE8" />
@@ -15,16 +16,18 @@
     <!-- Site Global CSS -->
     @*<link rel="stylesheet" media="screen" href="@routes.Assets.at("/public/stylesheets","reset.css")"/> *@
   <link rel="stylesheet" media="screen" href="@routes.Assets.at("/public/stylesheets","main.css")"/>
+  @* <link media="screen and (min-device-width: 481px)"      href='@routes.Assets.at("/public/stylesheets","main.css")'       type= "text/css" rel="stylesheet" /> *@
+  <link media="only screen and (max-device-width: 480px)" href='@routes.Assets.at("/public/stylesheets","main-phone.css")' type= "text/css" rel="stylesheet" />
+
     @*<link rel="stylesheet" media="screen" href="@routes.Assets.at("/public/stylesheets","gallery.css")"/>*@
     @*<link rel="stylesheet" href="http://@routes.Assets.at("/public/fonts","stylesheet.css")" type="text/css"/>*@
-  <link rel="stylesheet" media="screen" href="@routes.Assets.at("/public/stylesheets","refineslide.css")"/>
+  @*<link rel="stylesheet" media="screen" href="@routes.Assets.at("/public/stylesheets","refineslide.css")"/>*@
     @*<link rel="stylesheet" media="screen" href="@routes.Assets.at("/public/stylesheets","refineslide-theme-dark.css")"/>*@
     <!-- Page Local Less/CSS -->
     <!-- <link rel="stylesheet" type="text/css" href="routes.Assets.at("stylesheets/","main.css")"/> -->
     <!-- <link rel="stylesheet/less" type="text/css" href="local/local.less"> -->
     <style>
-      html
-      {
+      html {
       @*background:url('http://@routes.Assets.at("/public/images","photos/IMG_7877.jpg")') no-repeat center center fixed;*@
       background:url('@RemoteAssets.getUrl("images/" + bgImgURL)') no-repeat center center fixed;
       background-size: cover;
@@ -55,15 +58,15 @@
     <script type="text/javascript">
       $(document).ready(function() {
 
-        if(! /^.*\/$/i.test(window.location.pathname))
-          $('div.site_sections').css('display','block');
+      if(! /^.*\/$/i.test(window.location.pathname))
+      $('div.site_sections').css('display','block');
 
-        $("div.arrow_box").click(function() {
-          if($(this).siblings('div.site_sections').css('display') === 'none')
-            $(this).siblings('div.site_sections').css('display','block');
-          else
-            $(this).siblings('div.site_sections').css('display','none');
-        });
+      $("div.arrow_box").click(function() {
+      if($(this).siblings('div.site_sections').css('display') === 'none')
+      $(this).siblings('div.site_sections').css('display','block');
+      else
+      $(this).siblings('div.site_sections').css('display','none');
+      });
 
       $("a#first" ).addClass("actlink");   $(".first" ).show();
       $("a#second").addClass("inactlink"); $(".second").hide();
@@ -99,30 +102,6 @@
   </head>
 
   <body>
-  <!--[if IE]>
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js"></script>
-
-<style type="text/css">
-.chromeFrameInstallDefaultStyle {
-width: 100%; /* default is 800px */
-border: 5px solid blue;
-}
-</style>
-
-<div id="prompt"></div>
-
-<script type="text/javascript">
-// The conditional ensures that this code will only execute in IE,
-// Therefore we can use the IE-specific attachEvent without worry
-window.attachEvent("onload", function() {
-CFInstall.check({
-mode: "inline", // the default
-node: "prompt"
-});
-});
-</script>
-<![endif]-->
-
     <div class="hide-me" itemscope="itemscope" itemtype="http://schema.org/Restaurant">
       <span itemprop="name">Café Des Artistes</span>
       <div itemprop="address" itemscope="itemscope" itemtype="http://schema.org/PostalAddress">
@@ -153,71 +132,53 @@ node: "prompt"
     </div>
 
     <div class="coming-soon">
-        @svglogo()
+    @svglogo()
     </div>
     <div class="nav">
-        <div class="arrow_box">
-            <p>   THE RESTAURANT     </p>
-        </div>
-        <div class="site_sections">
-            <p><a id="reserve"  href="@routes.Application.reserve()">  MAKE A RESERVATION </a></p>
-            <p><a id="order"    href="@routes.Application.order()">    ORDER ONLINE       </a></p>
-            <p><a id="events"   href="@routes.Application.events()">   PLAN YOUR EVENT    </a></p>
-            <p><a id="about"    href="@routes.Application.about()">    WHAT’S OUR STORY   </a></p>
-            <p><a id="menu"     href="@routes.Application.menu()">     THE MENU           </a></p>
-            <p><a id="photos"   href="@routes.Application.photos()">   PHOTO GALLERY      </a></p>
-            <p><a id="press"    href="@routes.Application.press()">    CDA IN THE PRESS   </a></p>
-            <p><a id="mixology" href="@routes.Application.mixology()"> MIXOLOGY           </a></p>
-        </div>
+      <div class="arrow_box">
+        <p>   THE RESTAURANT     </p>
+      </div>
+      <div class="site_sections">
+        <p><a id="reserve"  href="@routes.Application.reserve()">  MAKE A RESERVATION </a></p>
+        <p><a id="order"    href="@routes.Application.order()">    ORDER ONLINE       </a></p>
+        <p><a id="events"   href="@routes.Application.events()">   PLAN YOUR EVENT    </a></p>
+        <p><a id="about"    href="@routes.Application.about()">    WHAT’S OUR STORY   </a></p>
+        <p><a id="menu"     href="@routes.Application.menu()">     THE MENU           </a></p>
+        <p><a id="photos"   href="@routes.Application.photos()">   PHOTO GALLERY      </a></p>
+        <p><a id="press"    href="@routes.Application.press()">    CDA IN THE PRESS   </a></p>
+        <p><a id="mixology" href="@routes.Application.mixology()"> MIXOLOGY           </a></p>
+      </div>
     </div>
 
-    <div id="contentPlaceholder">
-      @content
-    </div>
+    <div id="contentPlaceholder"> @content </div>
 
     <div class="footer-fader">
-    <!-- <embed class="footer-fader" src="global/img/BlackFader.svg" type="image/svg+xml" /> -->
-    <!-- <img src="global/img/BlackFader.svg" height="45px"></img> -->
-    </div>
-    <div class="footer-left">
-        <p class="footer">1534 N. Mccadden Place . Los Angeles . CA 90028 . 323 465 6425 . <a class="outlinks" href="mailto:info@@cdadining.com?Subject=Inquiry">info@@cdadining.com</a></p>
-        @*<p class="footer">8412 w. 3rd st, los angeles, CA 90048 . (323)852-0642 . <a class="outlinks" href="@routes.Application.careers()">careers</a> . <a class="outlinks" href="@routes.Application.investors()">investors</a></p>*@
-      <!-- <embed class="footer-left" src="global/img/Footer-left.svg" type="image/svg+xml" /> -->
-    </div>
-    <div class="footer-right">
-      <p class="footer">branding &amp; design by <a class="outlinks" href="http://galvagnize.me/" target="_blank">galvagnize.me</a></p>
-      <!-- <embed class="foot`er-right" src="global/img/Footer-right.svg" type="image/svg+xml" /> -->
+      <div class="footer-left">
+        <p class="footer">1534 N. Mccadden Place . Los Angeles . CA 90028 . 323 465 6425 . <a class="outlinks" href="mailto:info&#64;cdadining.com?Subject=Inquiry" > info@@cdadining.com </a> </p>
+      </div>
+      <div class="footer-right">
+        <p class="footer">branding &amp; design by <a class="outlinks" href="http://galvagnize.me/" target="_blank">galvagnize.me</a></p>
+      </div>
     </div>
 
-    @*<script src="@routes.Assets.at("/public/javascripts","gallery.js")" type="text/javascript"></script>*@
-    <script src="@routes.Assets.at("/public/javascripts","jquery.refineslide.js")" type="text/javascript"></script>
     <script type="text/javascript">
       setTimeout(function(){var a=document.createElement("script");
       var b=document.getElementsByTagName('script')[0];
       a.src=document.location.protocol+"//dnn506yrbagrg.cloudfront.net/pages/scripts/0012/0439.js?"+Math.floor(new Date().getTime()/3600000);
       a.async=true;a.type="text/javascript";b.parentNode.insertBefore(a,b)}, 1);
     </script>
-  <!-- Start of StatCounter Code for Default Guide -->
+
+    <!-- Start of StatCounter Code for Default Guide -->
     <script type="text/javascript">
       var sc_project=7538756;
       var sc_invisible=1;
       var sc_security="1625ea96";
     </script>
+
     <script type="text/javascript" src="http://www.statcounter.com/counter/counter.js"></script>
     <noscript><div class="statcounter"><a title="tumblr statistics" href="http://statcounter.com/tumblr/" target="_blank">
     <img class="statcounter" src="http://c.statcounter.com/7538756/0/1625ea96/1/" alt="tumblr statistics"/></a></div>
     </noscript>
-  <!-- End of StatCounter Code for Default Guide -->
-    <script>
-      $(document).ready(function () {
-      $('.rs-slider').refineSlide()});
-      @*{
-      'transitionDuration' : 1000,
-      'transition'         : 'slideH',
-      'autoPlay'           : false,
-      'delay'              : 0,
-      'controls'           : 'arrows'});
-      });*@
-    </script>
+    <!-- End of StatCounter Code for Default Guide -->
   </body>
 </html>

@@ -9,7 +9,6 @@
 
 /* ---|  Elastic Pixels  |--- */
 html {
-  background-size: cover;
   font-size: 6.25%;  /* scale down 1em == 1px (assuming the default browser font-size is 16px)  */
   -webkit-text-size-adjust:none; /* force Webkit to allow 1px font-size */
   height: 100%;
@@ -22,10 +21,20 @@ body {
   width: 100%;
 }
 /* ---|    That's it!    |--- */
+body
+{
+  background-repeat:     no-repeat;
+  background-attachment: fixed;
+  background-position: center;
 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
 
 div#info {
-  font-size: 16px; /* no "rem" styles defined so content font-size is "fixed" (i.e. no zoom) */
+  font-size: 16rem; /* no "rem" styles defined so content font-size is "fixed" (i.e. no zoom) */
   margin-top: 19px;
 }
 
@@ -178,7 +187,7 @@ div.footer-left
   bottom:13px;
   left:25px;
   font-family: "Gudea", sans-serif;
-  font-size: 12pt;
+  font-size: 12rem;
   color: white;
 }
 
@@ -194,26 +203,13 @@ div.footer-right
   bottom:13px;
   right:25px;
   font-family: "Gudea", sans-serif;
-  font-size: 12pt;
+  font-size: 12rem;
   color: white;
 }
 embed.footer-right
 {
   width:466px;
   height:30px;
-}
-
-/*div#contactForm*/
-p.subMessage {
-  font-family: "Gudea",sans-serif;
-  font-size: 12pt;
-  /*font-weight: normal;*/
-  /*margin-top: 15px;*/
-  /*width: 66%;*/
-  /*color: black;*/
-  /*padding-left: 1em;*/
-  padding-top: .5em;
-  margin-right: 130px;
 }
 
 div.site-menu
@@ -239,7 +235,7 @@ embed.site-menu
 
 p.subMenu {
   font-family: "Open Sans Condensed",sans-serif;
-  font-size: 24pt;
+  font-size: 24rem;
   margin-top:5px;
   width: 100%;
   height: auto;
@@ -273,14 +269,14 @@ a.actlink {
 
 p.effective_times {
   font-family: "Gudea",sans-serif;
-  font-size: 1em;
+  font-size: 10rem;
   height: 3em;
   color: #869855;
 }
 
 p.origMessage, p.statusMessage {
   font-family: "Gudea",sans-serif;
-  font-size: 12pt;
+  font-size: 12rem;
   margin-top:5px;
   /*margin-right: 130px;*/
   /*padding-left: 1em;*/
@@ -293,7 +289,7 @@ p.origMessage, p.statusMessage {
 
 ul.bulleted {
   font-family: "Gudea", sans-serif;
-  font-size: 12pt;
+  font-size: 12rem;
   margin-top: 15px;
   width: 66%;
   list-style: none;
@@ -316,7 +312,7 @@ input[type="text"] {
   padding: .4em;
   width: 35%;
   font-family: "Gudea", sans-serif;
-  font-size: 14pt;
+  font-size: 14rem;
   border: 1px solid #aaa;
   border-radius: 5px;
   box-shadow: rgba(0,0,0,.2) 0 1px 4px inset;
@@ -335,7 +331,7 @@ input[type="email"] {
   padding: .4em;
   width: 80%;
   font-family: "Gudea", sans-serif;
-  font-size: 14pt;
+  font-size: 14rem;
   border: 1px solid #aaa;
   border-radius: 5px;
   box-shadow: rgba(0,0,0,.2) 0 1px 4px inset;
@@ -351,7 +347,7 @@ section {
   color: #FFFFFF;
   display: block;
   font-family: "Gudea-Bold", sans-serif;
-  font-size: 14pt;
+  font-size: 14rem;
   margin-bottom: -1px;
   margin-left: -3px;
   margin-right: -3px;
@@ -387,8 +383,8 @@ section {
 }
 
 img.news {
-  width: 204px;
-  height: 290px;
+  width: 408px;
+  height: 580px;
   margin-right: 1em;
 }
 
@@ -401,45 +397,78 @@ img.menu {
 
 div#contentPlaceholder {
   position: absolute;
+  display: table-cell;
+
   top:  215rem;
   left: 215rem;
-  right: 241px;
-  /*width:auto;*/
-  height:60%;
-  min-height: 60%;
-  max-height: 60%;
+  right: 220rem;
+  bottom: 220rem;
+
+  max-width: 850rem;
+  max-height: 100%;
+
   z-index: 1;
 }
 
 /* The form dimensions */
 div#contactForm {
-  overflow:hidden;
-  height: 100%;
-  top: 0;
-  bottom: 0;
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  box-orient: vertical;
+
+  overflow-x:hidden;
+  overflow-y: hidden;
+
+  height: auto;
+  max-height: 100%;
+
+  width: 100%;
+
   background:rgba(255,255,255,0.7);
-  z-index: 2;
+  z-index: 1;
 }
 
 /* The header at the top of the form */
 div#contactForm p.venue {
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+
   font-family: 'Open Sans Condensed', sans-serif;
   font-size: 75rem;
-  width: 85%;
+  width: 100%;
+  /*max-height: 100%;*/
+  overflow: hidden;
   color: #989899;
-  padding-top: .1em;
-  padding-bottom: .1em;
-  margin-right: 130px;
-  z-index: 2;
+  padding-top: .1rem;
+  padding-bottom: .1rem;
+  margin-right: .1rem;
+  z-index: 1;
 }
 
 div.venuebox {
-  position: absolute;
+  /*position: absolute;*/
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  box-orient: vertical;
+
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  box-flex: 1;
+
   padding-left: .5em;
   top: 0;
   left: 0;
   right: 0;
-  height: 30rem;
+  height: auto;
   /*background-image: -webkit-linear-gradient(left, rgba(134, 152, 85,1) 0%,rgba(134, 152, 85,0) 100%);  *//* Chrome10+,Safari5.1+ */
   /*background: linear-gradient(to right, rgba(134, 152, 85,1) 0%, rgba(134, 152, 85, 0) 100%);*/
 }
@@ -453,19 +482,45 @@ div.submenubox {
 }
 
 div.menubox{
-  position: absolute;
-  top: 5em;
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  box-orient: vertical;
+
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  box-flex: 1;
+
   bottom: 0;
   left: 0;
   right: 0;
+
+  min-height: 20rem;
+  height: auto;
+  max-height: 100%;
+
   overflow-x: hidden;
-  overflow-y: auto;
+  overflow-y: hidden;
+
   margin: .5em;
+}
+
+/*div#contactForm*/
+p.subMessage {
+  font-family: "Gudea",sans-serif;
+  font-size: 20rem;
+  padding-top: .5em;
+
+  /*margin-right: 1px;*/
+  line-height: 140%;
 }
 
 div.menu_section {
   font-family: "Open Sans Condensed",sans-serif;
-  font-size: 22pt;
+  font-size: 22rem;
   position: relative;
   height: auto;
   min-height: 1em;
@@ -516,7 +571,7 @@ div.menu_section_body {
 
 div.menu_section_note {
   font-family: "Open Sans Condensed",sans-serif;
-  font-size: 12pt;
+  font-size: 12rem;
 }
 
 div.menu_item {
@@ -529,18 +584,18 @@ div.menu_item {
 div.menu_item_name {
   position: absolute;
   font-family: "Open Sans Condensed",sans-serif;
-  font-size: 16pt;
+  font-size: 16rem;
   height: 1em;
 }
 
 div.menu_item_description {
   font-family: "Open Sans Condensed",sans-serif;
-  font-size: 12pt;
+  font-size: 12rem;
 }
 
 div.menu_item_price {
   font-family: "Open Sans Condensed",sans-serif;
-  font-size: 16pt;
+  font-size: 16rem;
   text-align:right;
   height: 1em;
 }
