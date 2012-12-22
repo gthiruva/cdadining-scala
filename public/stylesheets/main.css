@@ -23,6 +23,14 @@ body {
 /* ---|    That's it!    |--- */
 body
 {
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  box-orient: vertical;
+
   background-repeat:     no-repeat;
   background-attachment: fixed;
   background-position: center;
@@ -71,36 +79,27 @@ a.button {
 
 /****** End Elastic Pixel stuff ***/
 
-/*html*/
-/*{*/
-  /*z-index: -1;*/
-/*}*/
-
 div.hide-me /* For things like RDF/Microdata */
 {
   display: none;
 }
 
-div.coming-soon
+div.logo
 {
-  position: relative;
-  top:  30rem;
-  left: 30rem;
-  width:180px;
-  height:180px;
-  z-index: 1;
-}
-embed.coming-soon
-{
-  /*width:180px;*/
-  /*height:180px;*/
+  position: absolute;
+  top:      30rem;
+  left:     30rem;
+
+  width:    180rem;
+  height:   180rem;
 }
 
 div.nav {
-  position: relative;
-  top:  35rem;
-  left: 30rem;
-  width: 180px;
+  position: absolute;
+  top:      215rem;
+  left:     30rem;
+
+  width: 180rem;
 }
 
 .arrow_box {
@@ -171,19 +170,18 @@ p.footer {
 }
 
 div.footer-fader{
-  position: fixed;
+  position: absolute;
   bottom:0;
   left:0;
-  height: 45px;
+
+  height: 45rem;
   width: 100%;
   background-color: black;
-  /*opacity: .7;*/
-  z-index:0;
 }
 
 div.footer-left
 {
-  position: fixed;
+  position: absolute;
   bottom:13px;
   left:25px;
   font-family: "Gudea", sans-serif;
@@ -191,41 +189,24 @@ div.footer-left
   color: white;
 }
 
-embed.footer-left
-{
-  width:466px;
-  height:30px;
-}
-
 div.footer-right
 {
-  position: fixed;
+  position: absolute;
   bottom:13px;
   right:25px;
   font-family: "Gudea", sans-serif;
   font-size: 12rem;
   color: white;
 }
-embed.footer-right
-{
-  width:466px;
-  height:30px;
-}
 
 div.site-menu
 {
-  z-index: 5;
   position: absolute;
   margin-left: 100%;
   top: -130px;
   left: -130px; /* 666px; */
   width:260px;
   height:260px;
-}
-embed.site-menu
-{
-  width: 100%;
-  height: 100%;
 }
 
 /* Dimensions and position of the status messages */
@@ -395,19 +376,44 @@ img.menu {
   /*overflow: visible;*/
 }
 
+div.unfixed-content {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+  bottom: 45rem;
+
+  /*height: 100%;*/
+  width: 100%;
+  overflow: hidden;
+}
+
 div#contentPlaceholder {
   position: absolute;
-  display: table-cell;
+  /*display: table-cell;*/
+
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  box-orient: vertical;
+
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  box-flex: 1;
 
   top:  215rem;
   left: 215rem;
-  right: 220rem;
-  bottom: 220rem;
+  bottom: 10rem;
+  right: 100rem;
 
-  max-width: 850rem;
-  max-height: 100%;
+  overflow-x: hidden;
+  overflow-y: hidden;
 
-  z-index: 1;
+  padding: 5rem;
+  max-width: 900rem;
 }
 
 /* The form dimensions */
@@ -420,16 +426,13 @@ div#contactForm {
   -moz-box-orient: vertical;
   box-orient: vertical;
 
-  overflow-x:hidden;
-  overflow-y: hidden;
-
   height: auto;
+  min-height: 500rem;
   max-height: 100%;
 
-  width: 100%;
+  padding-right: 10rem;
 
-  background:rgba(255,255,255,0.7);
-  z-index: 1;
+  background:rgba(255,255,255,0.8);
 }
 
 /* The header at the top of the form */
@@ -446,7 +449,6 @@ div#contactForm p.venue {
   color: #989899;
   padding-top: .1rem;
   padding-bottom: .1rem;
-  margin-right: .1rem;
   z-index: 1;
 }
 
@@ -456,21 +458,11 @@ div.venuebox {
   display: -moz-box;
   display: box;
 
-  -webkit-box-orient: vertical;
-  -moz-box-orient: vertical;
-  box-orient: vertical;
-
-  -webkit-box-flex: 1;
-  -moz-box-flex: 1;
-  box-flex: 1;
-
-  padding-left: .5em;
+  padding-left: 1em;
   top: 0;
   left: 0;
   right: 0;
   height: auto;
-  /*background-image: -webkit-linear-gradient(left, rgba(134, 152, 85,1) 0%,rgba(134, 152, 85,0) 100%);  *//* Chrome10+,Safari5.1+ */
-  /*background: linear-gradient(to right, rgba(134, 152, 85,1) 0%, rgba(134, 152, 85, 0) 100%);*/
 }
 
 div.submenubox {
@@ -498,14 +490,15 @@ div.menubox{
   left: 0;
   right: 0;
 
-  min-height: 20rem;
-  height: auto;
-  max-height: 100%;
+  /*min-height: 20rem;*/
+  /*height: auto;*/
+  /*max-height: 100%;*/
 
   overflow-x: hidden;
   overflow-y: hidden;
 
-  margin: .5em;
+  padding-left: 1em;
+  padding-bottom: 10rem;
 }
 
 /*div#contactForm*/

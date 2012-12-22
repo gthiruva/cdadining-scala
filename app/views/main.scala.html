@@ -94,12 +94,12 @@
     <div class="hide-me" itemscope="itemscope" itemtype="http://schema.org/Restaurant">
       <span itemprop="name">Café Des Artistes</span>
       <div itemprop="address" itemscope="itemscope" itemtype="http://schema.org/PostalAddress">
-        <span itemprop="streetAddress">8412 w. 3rd st</span>
+        <span itemprop="streetAddress">1534 N. Mccadden Place</span>
         <span itemprop="addressLocality">Los Angeles</span>
         <span itemprop="addressRegion">CA</span>
-        <span itemprop="postalCode">90048</span>
+        <span itemprop="postalCode">90028</span>
       </div>
-      <span itemprop="telephone">(323) 469-7300</span>
+      <span itemprop="telephone">(323) 465-6425</span>
       <a itemprop="url" href="http://www.cdadining.com">www.cdadining.com</a>
 
     <meta itemprop="openingHours" content="Su-Sa 09:00-05:00"/>
@@ -120,26 +120,26 @@
       <span itemprop="servesCuisine">Salads</span>
     </div>
 
-    <div class="coming-soon">
-    @svglogo()
-    </div>
-    <div class="nav">
-      <div class="arrow_box">
-        <p>   THE RESTAURANT     </p>
+    <div class="unfixed-content">
+      <div class="logo"> @svglogo() </div>
+      <div class="nav">
+        <div class="arrow_box">
+          <p>   THE RESTAURANT     </p>
+        </div>
+        <div class="site_sections">
+          <p><a id="reserve"  href="@routes.Application.reserve()">  MAKE A RESERVATION </a></p>
+          <p><a id="order"    href="@routes.Application.order()">    ORDER ONLINE       </a></p>
+          <p><a id="events"   href="@routes.Application.events()">   PLAN YOUR EVENT    </a></p>
+          <p><a id="about"    href="@routes.Application.about()">    WHAT’S OUR STORY   </a></p>
+          <p><a id="menu"     href="@routes.Application.menu()">     THE MENU           </a></p>
+          <p><a id="photos"   href="@routes.Application.photos()">   PHOTO GALLERY      </a></p>
+          <p><a id="press"    href="@routes.Application.press()">    CDA IN THE PRESS   </a></p>
+          <p><a id="mixology" href="@routes.Application.mixology()"> MIXOLOGY           </a></p>
+        </div>
       </div>
-      <div class="site_sections">
-        <p><a id="reserve"  href="@routes.Application.reserve()">  MAKE A RESERVATION </a></p>
-        <p><a id="order"    href="@routes.Application.order()">    ORDER ONLINE       </a></p>
-        <p><a id="events"   href="@routes.Application.events()">   PLAN YOUR EVENT    </a></p>
-        <p><a id="about"    href="@routes.Application.about()">    WHAT’S OUR STORY   </a></p>
-        <p><a id="menu"     href="@routes.Application.menu()">     THE MENU           </a></p>
-        <p><a id="photos"   href="@routes.Application.photos()">   PHOTO GALLERY      </a></p>
-        <p><a id="press"    href="@routes.Application.press()">    CDA IN THE PRESS   </a></p>
-        <p><a id="mixology" href="@routes.Application.mixology()"> MIXOLOGY           </a></p>
-      </div>
-    </div>
 
-    <div id="contentPlaceholder"> @content </div>
+      <div id="contentPlaceholder"> @content </div>
+    </div>
 
     <div class="footer-fader">
       <div class="footer-left">
