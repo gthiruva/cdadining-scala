@@ -1,4 +1,4 @@
-@(title: String, bgImgURL: String)(content: Html)
+@(title: String, bgImgURL: String, bgColor: String)(content: Html)
 @import org.hibernate.validator.constraints.SafeHtml
 <!DOCTYPE HTML>
 <html lang="en-US" xmlns="http://www.w3.org/1999/html">
@@ -121,7 +121,7 @@
     </div>
 
     <div class="unfixed-content">
-      <div class="logo"> @svglogo() </div>
+      <div class="logo"> @{svglogo(bgColor)} </div>
       <div class="nav">
         <div class="arrow_box">
           <p>   THE RESTAURANT     </p>
